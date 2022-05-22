@@ -34,10 +34,8 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "Item {" +
                 "item_id=" + item_id +
-                ", item_name='" + item_name + '\'' +
-                ", item_owner=" + item_owner +
-                '}';
+                ", item_name='" + item_name + '}';
     }
 }

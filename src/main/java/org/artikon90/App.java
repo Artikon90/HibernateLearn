@@ -21,12 +21,11 @@ public class App {
         Session session = sessionFactory.getCurrentSession();
         try {
             session.beginTransaction();
-            Person person = session.get(Person.class, 4);
+            Item item = session.get(Item.class, 4);
+            System.out.println(item);
+            Person person = item.getItem_owner();
             System.out.println(person);
-            List<Item> items = person.getItems();
-            System.out.println(items);
             session.getTransaction().commit();
-            System.out.println(person.getId());
         } finally {
             sessionFactory.close();
         }
