@@ -16,12 +16,8 @@ public class App {
         Session session = sessionFactory.getCurrentSession();
         try {
             session.beginTransaction();
-            Person person1 = new Person("Sasha", 35);
-            Person person2 = new Person("Alex", 23);
-            Person person3 = new Person("Vlad", 25);
-            session.persist(person1);
-            session.persist(person2);
-            session.persist(person3);
+            Person person = session.get(Person.class, 3);
+            person.setName("New name123");
             session.getTransaction().commit();
         } finally {
             sessionFactory.close();
