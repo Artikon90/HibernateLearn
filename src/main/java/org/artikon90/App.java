@@ -16,9 +16,10 @@ public class App {
         Session session = sessionFactory.getCurrentSession();
         try {
             session.beginTransaction();
-            Person person = session.get(Person.class, 3);
-            session.remove(person);
+            Person person = new Person("Random Name", 45);
+            session.persist(person);
             session.getTransaction().commit();
+            System.out.println(person.getId());
         } finally {
             sessionFactory.close();
         }
