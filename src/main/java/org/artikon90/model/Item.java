@@ -4,12 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 
 @Entity
 @Table(name = "Item")
@@ -33,4 +31,13 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "item_owner", referencedColumnName = "id")
     Person item_owner;
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "item_id=" + item_id +
+                ", item_name='" + item_name + '\'' +
+                ", item_owner=" + item_owner +
+                '}';
+    }
 }
